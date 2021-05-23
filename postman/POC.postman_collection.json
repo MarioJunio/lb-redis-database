@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "b1365027-4ba7-40db-a39e-0c805e2ab603",
+		"name": "POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "redis-table",
+			"item": [
+				{
+					"name": "wished table",
+					"item": [
+						{
+							"name": "Add bulk balancer rate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"operation\": \"CREDIT\",\n        \"brand\": \"VISA\",\n        \"gateway\": \"BRASPAG\",\n        \"provider\": \"CIELO\",\n        \"balanceRate\": 10\n    },\n    {\n        \"operation\": \"CREDIT\",\n        \"brand\": \"VISA\",\n        \"gateway\": \"BRASPAG\",\n        \"provider\": \"REDE\",\n        \"balanceRate\": 60\n    },\n    {\n        \"operation\": \"CREDIT\",\n        \"brand\": \"VISA\",\n        \"gateway\": \"ADYEN\",\n        \"provider\": \"CIELO\",\n        \"balanceRate\": 5\n    },\n    {\n        \"operation\": \"CREDIT\",\n        \"brand\": \"VISA\",\n        \"gateway\": \"ADYEN\",\n        \"provider\": \"REDE\",\n        \"balanceRate\": 25\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/wisheds/bulk",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"wisheds",
+										"bulk"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"operation\": \"CREDIT\",\n    \"brand\": \"VISA\",\n    \"gateway\": \"BRASPAG\",\n    \"provider\": \"CIELO\",\n    \"balanceRate\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/wisheds",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"wisheds"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Wished Table",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/wisheds",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"wisheds"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete wished routing by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/wisheds/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"wisheds",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Wished Routing by id Copy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/wisheds/1?rate=40",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"wisheds",
+										"1"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "40"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "current table",
+					"item": [
+						{
+							"name": "Create new current routing gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"id\": \"f3b30ead-fc07-4b6f-9a6f-223d9836e552\",\n        \"operation\": \"CREDIT\",\n        \"brand\": \"VISA\",\n        \"gateway\": \"BRASPAG\",\n        \"provider\": \"CIELO\",\n        \"count\": 2\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/currents",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"currents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get current table",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/currents",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"currents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "operations",
+					"item": [
+						{
+							"name": "Capture",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"operation\": \"CREDIT\",\n    \"brand\": \"VISA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/captures",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"captures"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
