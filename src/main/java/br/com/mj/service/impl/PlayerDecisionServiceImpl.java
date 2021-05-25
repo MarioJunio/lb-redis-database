@@ -33,7 +33,7 @@ public class PlayerDecisionServiceImpl implements PlayerDecisionService {
                 .delta(Float.NEGATIVE_INFINITY)
                 .build();
 
-        for (WishedRoutingGateway wishedRoutingGateway : wishedRoutingGatewayService.findAll()) {
+        for (WishedRoutingGateway wishedRoutingGateway : wishedRoutingGatewayService.findByGroup(captureRequest.getOperation(), captureRequest.getBrand())) {
             final CurrentRoutingGateway currentRoutingGateway = currentRoutingGatewayService
                     .findOne(wishedRoutingGateway.getId())
                     .orElse(new CurrentRoutingGateway());

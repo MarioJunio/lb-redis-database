@@ -1,5 +1,7 @@
 package br.com.mj.service.impl;
 
+import br.com.mj.domain.redis.constants.BrandEnum;
+import br.com.mj.domain.redis.constants.OperationEnum;
 import br.com.mj.domain.redis.entity.WishedRoutingGateway;
 import br.com.mj.repository.WishedRoutingGatewayRepository;
 import br.com.mj.service.WishedRoutingGatewayService;
@@ -49,5 +51,10 @@ public class WishedRoutingGatewayServiceImpl implements WishedRoutingGatewayServ
     @Override
     public List<WishedRoutingGateway> findAll() {
         return IterableConverter.toList(wishedRoutingGatewayRepository.findAll());
+    }
+
+    @Override
+    public List<WishedRoutingGateway> findByGroup(OperationEnum operation, BrandEnum brand) {
+        return IterableConverter.toList(wishedRoutingGatewayRepository.findByOperationAndBrand(operation.name(), brand.name()));
     }
 }

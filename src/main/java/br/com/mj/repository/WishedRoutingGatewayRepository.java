@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WishedRoutingGatewayRepository extends CrudRepository<WishedRoutingGateway, String> {
+
+    Iterable<WishedRoutingGateway> findByOperationAndBrand(final String operation, final String brand);
 }

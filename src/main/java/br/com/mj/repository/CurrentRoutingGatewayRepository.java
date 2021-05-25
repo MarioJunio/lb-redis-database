@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface CurrentRoutingGatewayRepository extends CrudRepository<CurrentRoutingGateway, String> {
 
-    Optional<List<CurrentRoutingGateway>> findByOperation(final String operation);
+    Optional<List<CurrentRoutingGateway>> findByOperationAndBrand(final String operation, final String brand);
 }

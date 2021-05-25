@@ -75,7 +75,7 @@ public class CurrentRoutingGatewayServiceImpl implements CurrentRoutingGatewaySe
         log.info("M=sum, operation={}, brand={}", operation, brand);
 
         final Integer sumEntries = currentRoutingGatewayRepository
-                .findByOperation(operation.name())
+                .findByOperationAndBrand(operation.name(), brand.name())
                 .map(c -> {
                     log.info("M=sum, c={}", c);
                     return c.stream()
